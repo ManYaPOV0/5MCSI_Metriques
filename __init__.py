@@ -33,13 +33,17 @@ def mongraphique():
 
 @app.route("/histogramme/")
 def mongraphique2():
-    return render_template("graphique2.html")
+    return render_template("exo4.html")
 
-@app.route('/commits/>')
+@app.route('/extract-minutes/<date_string>')
 def extract_minutes(date_string):
         date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
         minutes = date_object.minute
         return jsonify({'minutes': minutes})
+
+@app.route('/commits/>')
+def exo6():
+    return render_template("exo6.html")
 
 if __name__ == "__main__":
   app.run(debug=True)
